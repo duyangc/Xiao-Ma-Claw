@@ -1,0 +1,72 @@
+name: Generate Articles JSON
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'articles/**'
+      - '.github/workflows/generate-articles.yml'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install python-frontmatter
+
+      - name: Generate articles.json
+        run: |
+          import os
+          import json
+          import frontmatter
+          from datetime import datetime
+
+          articles = []
+          articles_dir = 'articles'
+
+          for filename in os.listdir(articles_dir):
+              if filename.endswith('.md'):
+                  file_path = os.path.join(articles_dir, filename)
+                  post = frontmatter.load(file_path)
+
+                  article = {
+                      'id': filename.replace('.md', ''),
+                      'title': post.get('title', '无标题'),
+                      'date': post.get('date', '未知日期'),
+                      'tags': post.get('tags', []),
+                      'summary': post.get('summary', post.content[:200] + '...'),
+                      'content_url': f'https://raw.githubusercontent.com/{os.getenv("GITHUB_REPOSITORY")}/main/articles/{filename}'
+                  }
+                  articles.append(article)
+
+          # Sort by date descending
+          articles.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d') if x['date'] != '未知日期' else datetime.min, reverse=True)
+
+          # Write to JSON
+          with open('articles.json', 'w', encoding='utf-8') as f:
+              json.dump(articles, f, ensure_ascii=False, indent=2)
+        shell: python
+
+      - name: Commit and push articles.json
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add articles.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-generate articles.json"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
