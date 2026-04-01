@@ -575,8 +575,8 @@
         // Load Single Article
         async function loadArticle(id) {
             try {
-                // Fetch the markdown file
-                const res = await fetch(`https://raw.githubusercontent.com/duyangc/Xiao-Ma-Claw/main/articles/${id}.md`);
+                // Fetch the markdown file via jsDelivr CDN (better CORS support and speed)
+                const res = await fetch(`https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/${id}.md`);
                 if (!res.ok) throw new Error('Article not found');
                 const content = await res.text();
 
