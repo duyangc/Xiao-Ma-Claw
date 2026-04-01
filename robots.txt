@@ -1,0 +1,31 @@
+# Robots.txt for 小马克劳 (Xiao Ma Claw)
+# 官方网站：https://duyangc.github.io/Xiao-Ma-Claw
+
+# 允许所有搜索引擎爬虫
+User-agent: *
+Allow: /
+
+# 允许AI爬虫
+User-agent: Googlebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# 站点地图
+Sitemap: https://duyangc.github.io/Xiao-Ma-Claw/sitemap.xml
