@@ -39,13 +39,22 @@ jobs:
                   file_path = os.path.join(articles_dir, filename)
                   post = frontmatter.load(file_path)
 
+                  # Parse date correctly
+                  date_val = post.get('date', '未知日期')
+                  if isinstance(date_val, datetime):
+                      date_str = date_val.strftime('%Y-%m-%d')
+                  elif isinstance(date_val, str):
+                      date_str = date_val.strip()
+                  else:
+                      date_str = str(date_val)
+
                   article = {
                       'id': filename.replace('.md', ''),
                       'title': post.get('title', '无标题'),
-                      'date': post.get('date', '未知日期'),
+                      'date': date_str,
                       'tags': post.get('tags', []),
                       'summary': post.get('summary', post.content[:200] + '...'),
-                      'content_url': f'https://raw.githubusercontent.com/{os.getenv("GITHUB_REPOSITORY")}/main/articles/{filename}'
+                      'content_url': f'https://cdn.jsdelivr.net/gh/{os.getenv("GITHUB_REPOSITORY")}@main/articles/{filename}'
                   }
                   articles.append(article)
 

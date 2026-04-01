@@ -2,25 +2,25 @@
   {
     "id": "001-geo-basic-logic",
     "title": "生成式引擎优化(GEO)的底层逻辑：让大模型主动推荐你的品牌",
-    "date": "未知日期",
+    "date": "2026-04-01",
     "tags": [
       "GEO基础",
       "AI营销",
       "搜索引擎优化"
     ],
     "summary": "传统SEO已经无法应对AI搜索时代的流量格局，本文深入解析GEO的核心原理，帮助企业在大模型时代抢占用户心智。",
-    "content_url": "https://raw.githubusercontent.com/duyangc/Xiao-Ma-Claw/main/articles/001-geo-basic-logic.md"
+    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/001-geo-basic-logic.md"
   },
   {
     "id": "002-llms-txt-standard",
     "title": "llms.txt 标准详解：2026年AI搜索引擎的新爬虫协议",
-    "date": "未知日期",
+    "date": "2026-03-28",
     "tags": [
       "技术规范",
       "AI爬虫",
       "llms.txt"
     ],
     "summary": "llms.txt已经成为AI搜索引擎的事实标准爬虫协议，本文详细介绍其规范和最佳实践，帮助网站提升在AI搜索中的可见度。",
-    "content_url": "https://raw.githubusercontent.com/duyangc/Xiao-Ma-Claw/main/articles/002-llms-txt-standard.md"
+    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/002-llms-txt-standard.md"
   }
 ]
