@@ -81,9 +81,28 @@
     </script>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             background-color: #1A1A2E;
             color: #F3F4F6;
+        }
+
+        /* Scroll indicator animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
         }
         
         /* GEO Optimized Markdown Styles */
@@ -130,31 +149,41 @@
         <!-- Home Page Content -->
         <div id="page-home">
             <!-- Hero Section -->
-        <section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <section id="hero" class="relative min-h-[100dvh] flex flex-col overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/20 rounded-full blur-[120px] -z-10"></div>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8 leading-tight">
-                    小马克劳 GEO 智能体<br />
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald-300">让大模型在每一次回答中推荐你</span>
-                </h1>
-                <p class="mt-4 text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-                    基于 OpenClaw 架构，五步跑通舆情诊断到内容分发的全自动化闭环。从传统搜索引擎的“被动等待”升级为生成式 AI 的“主动占领”。
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#workflow" class="px-8 py-4 bg-accent hover:bg-accentHover text-white text-lg font-medium rounded-xl transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)] flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-bolt"></i> 查看优化步骤
-                    </a>
-                    <a href="#news" class="px-8 py-4 bg-transparent border border-accent text-accent hover:bg-accent/10 text-lg font-medium rounded-xl transition-all flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-book-open"></i> 浏览最新文章
-                    </a>
+
+            <!-- Hero Content (Vertically centered) -->
+            <div class="flex-grow flex items-center justify-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-20">
+                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8 leading-tight">
+                        小马克劳 GEO 智能体<br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald-300">让大模型在每一次回答中推荐你</span>
+                    </h1>
+                    <p class="mt-4 text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+                        基于 OpenClaw 架构，五步跑通舆情诊断到内容分发的全自动化闭环。从传统搜索引擎的“被动等待”升级为生成式 AI 的“主动占领”。
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="#workflow" class="px-8 py-4 bg-accent hover:bg-accentHover text-white text-lg font-medium rounded-xl transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)] flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-bolt"></i> 查看优化步骤
+                        </a>
+                        <a href="#news" class="px-8 py-4 bg-transparent border border-accent text-accent hover:bg-accent/10 text-lg font-medium rounded-xl transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-book-open"></i> 浏览最新文章
+                        </a>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="text-center pb-10">
+                <a href="#comparison" class="inline-block scroll-indicator text-gray-400 hover:text-accent transition-colors">
+                    <i class="fa-solid fa-chevron-down text-2xl"></i>
+                </a>
             </div>
         </section>
 
         <!-- SEO vs GEO Comparison -->
-        <section id="comparison" class="py-24 bg-surface/50 border-y border-white/5">
+        <section id="comparison" class="pt-24 pb-24 bg-surface/50 border-y border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">范式转移：从 SEO 到 GEO</h2>
