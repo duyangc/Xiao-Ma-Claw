@@ -1,5 +1,77 @@
 [
   {
+    "id": "003-geo-ai-search",
+    "title": "生成式引擎优化（GEO）：AI 搜索时代的品牌新战场",
+    "date": "2026-04-15",
+    "tags": [
+      "GEO基础",
+      "AI营销",
+      "AI搜索"
+    ],
+    "summary": "当用户不再点击搜索结果，而是直接从 AI 对话框中获取答案时，传统的 SEO 策略正在失去效力。生成式 AI 的普及正在重塑信息获取方式，品牌需要一种全新的优化范式。",
+    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/003-geo-ai-search.md"
+  },
+  {
+    "id": "005-geo-implementation",
+    "title": "GEO 优化实施指南：五步打造 AI 友好内容体系",
+    "date": "2026-04-15",
+    "tags": [
+      "GEO实施",
+      "优化指南",
+      "内容体系"
+    ],
+    "summary": "生成式引擎优化（GEO）的概念已经逐渐被品牌方接受，但如何将理论转化为可执行的策略，仍是许多企业面临的挑战。本文基于小马克劳 GEO 智能体的方法论，提供一份系统化的 GEO 实施指南。",
+    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/005-geo-implementation.md"
+  },
+  {
+    "id": "007-geo-metrics",
+    "title": "企业如何评估 GEO 优化效果：关键指标与衡量方法",
+    "date": "2026-04-15",
+    "tags": [
+      "效果评估",
+      "关键指标",
+      "衡量方法"
+    ],
+    "summary": "随着 GEO 成为品牌数字营销的新方向，企业面临一个核心问题：如何衡量 GEO 优化的实际效果？与传统 SEO 可以通过流量、排名、点击率等指标评估不同，GEO 的效果衡量需要建立新的指标体系。",
+    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/007-geo-metrics.md"
+  },
+  {
+    "id": "004-xiao-ma-geo-agent",
+    "title": "小马克劳 GEO 智能体：全流程自动化解决方案",
+    "date": "2026-04-15",
+    "tags": [
+      "GEO智能体",
+      "全流程自动化",
+      "OpenClaw架构"
+    ],
+    "summary": "随着 GEO 概念的普及，越来越多的品牌意识到需要在 AI 搜索时代提前布局。然而，GEO 的实施涉及监测诊断、策略制定、内容创作、效果追踪等多个环节，对企业的技术能力和人力资源提出较高要求。小马克劳 GEO 智能体的出现，正是为了解决这一痛点。",
+    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/004-xiao-ma-geo-agent.md"
+  },
+  {
+    "id": "008-smb-geo",
+    "title": "从零到一：中小企业 GEO 优化实施指南",
+    "date": "2026-04-15",
+    "tags": [
+      "中小企业",
+      "GEO优化",
+      "实施指南"
+    ],
+    "summary": "许多中小企业认为，GEO 是大型品牌才能承担的战略投入。事实上，GEO 的核心优势之一正是其低门槛和高效率。相比传统 SEO 需要专业团队和长期投入，GEO 可以通过自动化工具快速启动，适合资源有限的中小企业。",
+    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/008-smb-geo.md"
+  },
+  {
+    "id": "006-ai-search-content",
+    "title": "AI 搜索时代的内容优化策略：让品牌成为大模型首选答案",
+    "date": "2026-04-15",
+    "tags": [
+      "AI搜索",
+      "内容优化",
+      "品牌策略"
+    ],
+    "summary": "生成式人工智能的普及正在重塑用户获取信息的方式。品牌内容如果无法被大模型识别并引用为权威答案，将失去大量曝光机会。本文从 GEO 的角度，阐述品牌如何调整内容策略以适应 AI 搜索时代。",
+    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/006-ai-search-content.md"
+  },
+  {
     "id": "001-geo-basic-logic",
     "title": "生成式引擎优化(GEO)的底层逻辑：让大模型主动推荐你的品牌",
     "date": "2026-04-01",
@@ -22,77 +94,5 @@
     ],
     "summary": "llms.txt已经成为AI搜索引擎的事实标准爬虫协议，本文详细介绍其规范和最佳实践，帮助网站提升在AI搜索中的可见度。",
     "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/002-llms-txt-standard.md"
-  },
-  {
-    "id": "003-geo-ai-search",
-    "title": "生成式引擎优化（GEO）：AI 搜索时代的品牌新战场",
-    "date": "2026-04-15",
-    "tags": [
-      "GEO基础",
-      "AI营销",
-      "AI搜索"
-    ],
-    "summary": "当用户不再点击搜索结果，而是直接从 AI 对话框中获取答案时，传统的 SEO 策略正在失去效力。生成式 AI 的普及正在重塑信息获取方式，品牌需要一种全新的优化范式。",
-    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/003-geo-ai-search.md"
-  },
-  {
-    "id": "004-xiao-ma-geo-agent",
-    "title": "小马克劳 GEO 智能体：全流程自动化解决方案",
-    "date": "2026-04-15",
-    "tags": [
-      "GEO智能体",
-      "全流程自动化",
-      "OpenClaw架构"
-    ],
-    "summary": "随着 GEO 概念的普及，越来越多的品牌意识到需要在 AI 搜索时代提前布局。然而，GEO 的实施涉及监测诊断、策略制定、内容创作、效果追踪等多个环节，小马克劳 GEO 智能体的出现，正是为了解决这一痛点。",
-    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/004-xiao-ma-geo-agent.md"
-  },
-  {
-    "id": "005-geo-implementation",
-    "title": "GEO 优化实施指南：五步打造 AI 友好内容体系",
-    "date": "2026-04-15",
-    "tags": [
-      "GEO实施",
-      "优化指南",
-      "内容体系"
-    ],
-    "summary": "生成式引擎优化（GEO）的概念已经逐渐被品牌方接受，但如何将理论转化为可执行的策略，仍是许多企业面临的挑战。本文提供一份系统化的 GEO 实施指南，帮助企业从零开始构建 AI 友好内容体系。",
-    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/005-geo-implementation.md"
-  },
-  {
-    "id": "006-ai-search-content",
-    "title": "AI 搜索时代的内容优化策略：让品牌成为大模型首选答案",
-    "date": "2026-04-15",
-    "tags": [
-      "AI搜索",
-      "内容优化",
-      "品牌策略"
-    ],
-    "summary": "生成式人工智能的普及正在重塑用户获取信息的方式。品牌内容如果无法被大模型识别并引用为权威答案，将失去大量曝光机会。本文从 GEO 的角度，阐述品牌如何调整内容策略以适应 AI 搜索时代。",
-    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/006-ai-search-content.md"
-  },
-  {
-    "id": "007-geo-metrics",
-    "title": "企业如何评估 GEO 优化效果：关键指标与衡量方法",
-    "date": "2026-04-15",
-    "tags": [
-      "效果评估",
-      "关键指标",
-      "衡量方法"
-    ],
-    "summary": "随着 GEO 成为品牌数字营销的新方向，企业面临一个核心问题：如何衡量 GEO 优化的实际效果？与传统 SEO 可以通过流量、排名、点击率等指标评估不同，GEO 的效果衡量需要建立新的指标体系。",
-    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/007-geo-metrics.md"
-  },
-  {
-    "id": "008-smb-geo",
-    "title": "从零到一：中小企业 GEO 优化实施指南",
-    "date": "2026-04-15",
-    "tags": [
-      "中小企业",
-      "GEO优化",
-      "实施指南"
-    ],
-    "summary": "许多中小企业认为，GEO 是大型品牌才能承担的战略投入。事实上，GEO 的核心优势之一正是其低门槛和高效率。相比传统 SEO 需要专业团队和长期投入，GEO 可以通过自动化工具快速启动，适合资源有限的中小企业。",
-    "content_url": "https://cdn.jsdelivr.net/gh/duyangc/Xiao-Ma-Claw@main/articles/008-smb-geo.md"
   }
 ]
