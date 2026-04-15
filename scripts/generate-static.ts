@@ -14,37 +14,56 @@ const ROOT = path.resolve(__dirname, '..');
 function markdownToHtml(md: string): string {
   let html = md;
 
-  // 先处理表格（需要整块处理）
-  html = processTables(html);
+  // 第一步：处理表格（需要整块处理）
+  const tables: string[] = [];
+  html = processTables(html, tables);
 
-  // 处理标题
+  // 第二步：处理标题
   html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
   html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
   html = html.replace(/^# (.*$)/gm, '<h1>$1</h1>');
 
-  // 处理加粗
+  // 第三步：处理加粗
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-  // 处理链接
+  // 第四步：处理链接
   html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
 
-  // 处理列表
+  // 第五步：处理列表
   html = html.replace(/^\- (.*$)/gm, '<li>$1</li>');
 
-  // 处理段落
-  html = html.replace(/\n\n/g, '</p><p>');
-  html = '<p>' + html + '</p>';
+  // 第六步：恢复表格（用特殊标记保护）
+  html = html.replace(/__TABLE_PLACEHOLDER_(\d+)__/g, (m, idx) => {
+    return tables[parseInt(idx)];
+  });
 
-  // 清理空段落
+  // 第七步：处理段落 - 使用更好的方法
+  // 按双换行分割，但保持块级元素独立
+  const parts = html.split(/(\n\n+)/);
+  html = parts.map(part => {
+    part = part.trim();
+    if (!part) return '';
+    // 如果是双换行分隔符，直接返回
+    if (part.match(/^\n\n+$/)) return '';
+    // 如果包含块级标签（table, ul, ol, h1-h6, li），不包裹
+    if (/<(table|ul|ol|h[1-6])/i.test(part) || /<\/(table|ul|ol)>/i.test(part)) {
+      return part;
+    }
+    // 否则包裹在段落中
+    return `<p>${part.replace(/\n/g, '<br>')}</p>`;
+  }).join('');
+
+  // 清理连续的空白段落
   html = html.replace(/<p>\s*<\/p>/g, '');
+  html = html.replace(/<p>\s*<br\s*\/?>\s*<\/p>/g, '');
 
   return html;
 }
 
 // 处理表格块
-function processTables(text: string): string {
-  // 匹配整个表格块（多行），支持表格前有空行或普通段落
-  const tableRegex = /\n\n(\|.+\|)\n(\|[-: |]+\|)\n((?:\|.+\|\n?)+)/g;
+function processTables(text: string, tables: string[]): string {
+  // 匹配整个表格块（多行）
+  const tableRegex = /(\|.+\|)\n(\|[-: |]+\|)\n((?:\|.+\|\n?)+)/g;
 
   return text.replace(tableRegex, (match, headerLine, separatorLine, bodyLines) => {
     // 解析表头
@@ -71,7 +90,11 @@ function processTables(text: string): string {
     });
 
     tableHtml += '</tbody></table>';
-    return tableHtml;
+
+    // 保存到数组，用占位符替换
+    const placeholder = `__TABLE_PLACEHOLDER_${tables.length}__`;
+    tables.push(tableHtml);
+    return placeholder;
   });
 }
 
