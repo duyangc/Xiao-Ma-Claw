@@ -1,11 +1,13 @@
 {
-  "name": "react-example",
+  "name": "xiao-ma-claw",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
     "build": "vite build",
+    "generate:static": "npx tsx scripts/generate-static.ts",
+    "prebuild": "npm run generate:static",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
