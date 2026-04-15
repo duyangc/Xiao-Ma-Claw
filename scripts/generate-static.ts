@@ -340,6 +340,20 @@ async function main() {
   fs.mkdirSync(distDir, { recursive: true });
   fs.mkdirSync(articleDir, { recursive: true });
 
+  // 复制 SPA 入口文件（index.html）
+  const indexPath = path.join(ROOT, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    fs.copyFileSync(indexPath, path.join(distDir, 'index.html'));
+    console.log('✓ 复制 index.html');
+  }
+
+  // 复制 articles.json（供 SPA 使用）
+  const articlesJsonPath = path.join(ROOT, 'articles.json');
+  if (fs.existsSync(articlesJsonPath)) {
+    fs.copyFileSync(articlesJsonPath, path.join(distDir, 'articles.json'));
+    console.log('✓ 复制 articles.json');
+  }
+
   // 读取 articles.json
   const articlesJson = fs.readFileSync(path.join(ROOT, 'articles.json'), 'utf-8');
   const articles = JSON.parse(articlesJson);
@@ -374,6 +388,7 @@ async function main() {
   console.log('生成的目录结构:');
   console.log('  dist/');
   console.log('    index.html (SPA 主入口)');
+  console.log('    articles.json (文章列表)');
   console.log('    news.html (资讯中心 - 预渲染)');
   console.log('    sitemap.xml');
   console.log('    article/');
