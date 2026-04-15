@@ -377,6 +377,13 @@ async function main() {
     console.log('✓ 复制 articles.json');
   }
 
+  // 复制 Bing 站点验证文件
+  const bingAuthPath = path.join(ROOT, 'BingSiteAuth.xml');
+  if (fs.existsSync(bingAuthPath)) {
+    fs.copyFileSync(bingAuthPath, path.join(distDir, 'BingSiteAuth.xml'));
+    console.log('✓ 复制 BingSiteAuth.xml');
+  }
+
   // 读取 articles.json
   const articlesJson = fs.readFileSync(path.join(ROOT, 'articles.json'), 'utf-8');
   const articles = JSON.parse(articlesJson);
