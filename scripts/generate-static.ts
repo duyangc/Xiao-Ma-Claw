@@ -14,6 +14,9 @@ const ROOT = path.resolve(__dirname, '..');
 function markdownToHtml(md: string): string {
   let html = md;
 
+  // 先处理表格（需要整块处理）
+  html = processTables(html);
+
   // 处理标题
   html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
   html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
@@ -27,16 +30,6 @@ function markdownToHtml(md: string): string {
 
   // 处理列表
   html = html.replace(/^\- (.*$)/gm, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-
-  // 处理表格（简单处理）
-  html = html.replace(/\|(.*)\|/g, (match) => {
-    const cells = match.split('|').filter(c => c.trim());
-    if (cells.some(c => c.trim().match(/^-+$/))) {
-      return ''; // 分隔行
-    }
-    return '<tr>' + cells.map(c => `<td>${c.trim()}</td>`).join('') + '</tr>';
-  });
 
   // 处理段落
   html = html.replace(/\n\n/g, '</p><p>');
@@ -46,6 +39,40 @@ function markdownToHtml(md: string): string {
   html = html.replace(/<p>\s*<\/p>/g, '');
 
   return html;
+}
+
+// 处理表格块
+function processTables(text: string): string {
+  // 匹配整个表格块（多行），支持表格前有空行或普通段落
+  const tableRegex = /\n\n(\|.+\|)\n(\|[-: |]+\|)\n((?:\|.+\|\n?)+)/g;
+
+  return text.replace(tableRegex, (match, headerLine, separatorLine, bodyLines) => {
+    // 解析表头
+    const headers = headerLine.split('|').filter(c => c.trim()).map(c => c.trim());
+
+    // 解析表体行
+    const rows = bodyLines.trim().split('\n').filter(line => line.trim());
+
+    // 构建表头 HTML
+    let tableHtml = '<table><thead><tr>';
+    headers.forEach(h => {
+      tableHtml += `<th>${h}</th>`;
+    });
+    tableHtml += '</tr></thead><tbody>';
+
+    // 构建表体 HTML
+    rows.forEach(row => {
+      const cells = row.split('|').filter(c => c.trim()).map(c => c.trim());
+      tableHtml += '<tr>';
+      cells.forEach(c => {
+        tableHtml += `<td>${c}</td>`;
+      });
+      tableHtml += '</tr>';
+    });
+
+    tableHtml += '</tbody></table>';
+    return tableHtml;
+  });
 }
 
 // 解析 Markdown frontmatter
